@@ -1,8 +1,14 @@
 import { createContext, useContext, useState, ReactNode } from 'react'
 
-const GlobalContext = createContext()
+interface GlobalContextType {
+	isDarkTheme: boolean
+	setIsDarkTheme: (value: boolean) => void
+	toggleDarkTheme: () => void
+}
 
-export const useGlobalContext = () => {
+const GlobalContext = createContext<GlobalContextType | undefined>(undefined)
+
+export const useGlobalContext = (): GlobalContextType => {
 	const context = useContext(GlobalContext)
 	if (!context) {
 		throw new Error('useGlobalContext must be used within an AppContext')
@@ -10,6 +16,22 @@ export const useGlobalContext = () => {
 	return context
 }
 
-export const AppContext = ({ children }) => {
-	return <GlobalContext.Provider>{children}</GlobalContext.Provider>
+interface AppContextProps {
+	children: ReactNode // Typ dla children
+}
+
+export const AppContext = ({ children }: AppContextProps) => {
+	const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false)
+
+	const toggleDarkTheme = (): void => {
+		setIsDarkTheme(!isDarkTheme)
+		console.log(123)
+	}
+
+	return (
+		<GlobalContext.Provider
+			value={{ isDarkTheme, setIsDarkTheme, toggleDarkTheme }}>
+			{children}
+		</GlobalContext.Provider>
+	)
 }
