@@ -285,4 +285,8 @@ ul {
 .theme-icon {
 	font-size: 1.5rem;
 	color: var(--textColor);
+	transition: all 0.3s linear;
+}
+.theme-icon:hover {
+	transform: scale(1.3);
 }
