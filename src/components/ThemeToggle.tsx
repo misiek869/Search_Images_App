@@ -5,11 +5,15 @@ const ThemeToggle = () => {
 	const { isDarkTheme, toggleDarkTheme } = useGlobalContext()
 
 	return (
-		<div>
-			<button onClick={toggleDarkTheme} type='button'>
-				{isDarkTheme ? <IoMoon /> : <IoSunnyOutline />}
+		<section className='toggle-container'>
+			<button className='theme-btn' onClick={toggleDarkTheme} type='button'>
+				{isDarkTheme ? (
+					<IoSunnyOutline className='theme-icon' />
+				) : (
+					<IoMoon className='theme-icon' />
+				)}
 			</button>
-		</div>
+		</section>
 	)
 }
 

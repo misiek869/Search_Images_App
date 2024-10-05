@@ -48,6 +48,7 @@ html {
 	--transition: 0.3s ease-in-out all;
 	--max-width: 1120px;
 	--fixed-width: 600px;
+	--view-width: 90vw;
 
 	/* box shadow*/
 	--shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
@@ -258,4 +259,30 @@ ul {
 	height: 0.25rem;
 	margin: 0 auto;
 	margin-top: 1rem;
+}
+
+/* Project CSS */
+
+.toggle-container {
+	width: var(--view-width);
+	max-width: var(--max-width);
+	padding: 1rem 0;
+	margin: 0 auto;
+	display: flex;
+	justify-content: end;
+}
+
+.theme-btn {
+	background: transparent;
+	border-color: transparent;
+	width: 5rem;
+	height: 2rem;
+	display: grid;
+	place-items: center;
+	cursor: pointer;
+}
+
+.theme-icon {
+	font-size: 1.5rem;
+	color: var(--textColor);
 }
