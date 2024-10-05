@@ -1,11 +1,13 @@
 import { useGlobalContext } from '../context'
+import { IoMoon, IoSunnyOutline } from 'react-icons/io5'
 
 const ThemeToggle = () => {
 	const { isDarkTheme, toggleDarkTheme } = useGlobalContext()
+
 	return (
 		<div>
 			<button onClick={toggleDarkTheme} type='button'>
-				123
+				{isDarkTheme ? <IoMoon /> : <IoSunnyOutline />}
 			</button>
 		</div>
 	)
