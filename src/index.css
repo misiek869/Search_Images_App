@@ -290,3 +290,20 @@ ul {
 .theme-icon:hover {
 	transform: scale(1.3);
 }
+
+.search-form {
+	width: var(--view-width);
+	max-width: var(--fixed-width);
+	margin: 0 auto;
+	margin-top: 2rem;
+	display: grid;
+	grid-template-columns: 1fr auto;
+}
+
+.search-input {
+	border-color: var(--grey-300);
+	transition: var(--darkModeTransition);
+	color: var(--textColor);
+	border-radius: 3px;
+	border-right: none;
+}
