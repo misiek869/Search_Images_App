@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, ReactNode } from 'react'
+import {
+	createContext,
+	useContext,
+	useState,
+	ReactNode,
+	useEffect,
+} from 'react'
 
 interface GlobalContextType {
 	isDarkTheme: boolean
@@ -26,6 +32,10 @@ export const AppContext = ({ children }: AppContextProps) => {
 	const toggleDarkTheme = (): void => {
 		setIsDarkTheme(!isDarkTheme)
 	}
+
+	useEffect(() => {
+		document.body.classList.toggle('dark-theme', isDarkTheme)
+	}, [isDarkTheme])
 
 	return (
 		<GlobalContext.Provider
