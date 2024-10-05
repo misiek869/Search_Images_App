@@ -25,7 +25,6 @@ export const AppContext = ({ children }: AppContextProps) => {
 
 	const toggleDarkTheme = (): void => {
 		setIsDarkTheme(!isDarkTheme)
-		console.log(123)
 	}
 
 	return (
