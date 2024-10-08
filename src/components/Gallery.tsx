@@ -11,9 +11,7 @@ const Gallery = () => {
 	const photos = useQuery({
 		queryKey: ['photos', search],
 		queryFn: async () => {
-			const result = await customFetch.get(
-				`search/photos?client_id=bY5sj9GPY-Vd2InW6nWoxQhonfUjsZ0s7acCPvrRz5g&query=${search}`
-			)
+			const result = await customFetch.get(`${search}`)
 
 			return result.data
 		},
