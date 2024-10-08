@@ -28,12 +28,28 @@ interface AppContextProps {
 	children: ReactNode // Typ dla children
 }
 
+const getInitialTheme = () => {
+	const prefersDarkMode = window.matchMedia(
+		'(prefers-color-scheme: dark)'
+	).matches
+	const storedDarkMode = localStorage.getItem('darkTheme')
+
+	if (storedDarkMode === null) {
+		return prefersDarkMode
+	}
+
+	return storedDarkMode === 'true'
+}
+
 export const AppContext = ({ children }: AppContextProps) => {
-	const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false)
+	const [isDarkTheme, setIsDarkTheme] = useState<boolean>(getInitialTheme())
 	const [search, setSearch] = useState<string>('dog')
 
 	const toggleDarkTheme = (): void => {
-		setIsDarkTheme(!isDarkTheme)
+		const newDarkTheme = !isDarkTheme
+		setIsDarkTheme(newDarkTheme)
+
+		localStorage.setItem('darkTheme', String(newDarkTheme))
 	}
 
 	useEffect(() => {
