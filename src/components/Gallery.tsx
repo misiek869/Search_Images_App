@@ -2,9 +2,6 @@ import { useQuery } from '@tanstack/react-query'
 import customFetch from '../utils'
 import { useGlobalContext } from '../context'
 
-// const url =
-// 	'https://api.unsplash.com/search/photos?client_id=bY5sj9GPY-Vd2InW6nWoxQhonfUjsZ0s7acCPvrRz5g&query=office'
-
 type PhotoType = {
 	alt_description: string
 	id: string
