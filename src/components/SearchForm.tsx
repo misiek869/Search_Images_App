@@ -6,9 +6,9 @@ const SearchForm = () => {
 
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		const search = e.target.elements.search.value
-		if (!search) return
-		setSearch(search)
+		const searchValue = e.target.elements.search.value
+		if (!searchValue) return
+		setSearch(searchValue)
 	}
 
 	return (

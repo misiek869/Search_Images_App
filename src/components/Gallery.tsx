@@ -7,9 +7,9 @@ import { useGlobalContext } from '../context'
 
 const Gallery = () => {
 	const { search } = useGlobalContext()
-	
+
 	const photos = useQuery({
-		queryKey: ['photos'],
+		queryKey: ['photos', search],
 		queryFn: async () => {
 			const result = await customFetch.get(
 				`search/photos?client_id=bY5sj9GPY-Vd2InW6nWoxQhonfUjsZ0s7acCPvrRz5g&query=${search}`
