@@ -1,15 +1,19 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import customFetch from '../utils'
-import axios from 'axios'
+import { useGlobalContext } from '../context'
 
-const url =
-	'https://api.unsplash.com/search/photos?client_id=bY5sj9GPY-Vd2InW6nWoxQhonfUjsZ0s7acCPvrRz5g&query=office'
+// const url =
+// 	'https://api.unsplash.com/search/photos?client_id=bY5sj9GPY-Vd2InW6nWoxQhonfUjsZ0s7acCPvrRz5g&query=office'
 
 const Gallery = () => {
+	const { search } = useGlobalContext()
+	
 	const photos = useQuery({
 		queryKey: ['photos'],
 		queryFn: async () => {
-			const result = await axios.get(url)
+			const result = await customFetch.get(
+				`search/photos?client_id=bY5sj9GPY-Vd2InW6nWoxQhonfUjsZ0s7acCPvrRz5g&query=${search}`
+			)
 
 			return result.data
 		},

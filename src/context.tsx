@@ -10,6 +10,8 @@ interface GlobalContextType {
 	isDarkTheme: boolean
 	setIsDarkTheme: (value: boolean) => void
 	toggleDarkTheme: () => void
+	search: string
+	setSearch: (value: string) => void
 }
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined)
@@ -28,6 +30,7 @@ interface AppContextProps {
 
 export const AppContext = ({ children }: AppContextProps) => {
 	const [isDarkTheme, setIsDarkTheme] = useState<boolean>(false)
+	const [search, setSearch] = useState<string>('dog')
 
 	const toggleDarkTheme = (): void => {
 		setIsDarkTheme(!isDarkTheme)
@@ -39,7 +42,13 @@ export const AppContext = ({ children }: AppContextProps) => {
 
 	return (
 		<GlobalContext.Provider
-			value={{ isDarkTheme, setIsDarkTheme, toggleDarkTheme }}>
+			value={{
+				isDarkTheme,
+				setIsDarkTheme,
+				toggleDarkTheme,
+				search,
+				setSearch,
+			}}>
 			{children}
 		</GlobalContext.Provider>
 	)
