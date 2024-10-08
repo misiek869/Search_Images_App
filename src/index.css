@@ -147,6 +147,8 @@ ul {
 	background: var(--primary-500);
 	border: transparent;
 	border-radius: var(--borderRadius);
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 	letter-spacing: var(--letterSpacing);
 	padding: 0.375rem 0.75rem;
 	box-shadow: var(--shadow-1);
@@ -155,7 +157,7 @@ ul {
 	display: inline-block;
 }
 .btn:hover {
-	background: var(--primary-700);
+	background: var(--primary-600);
 	box-shadow: var(--shadow-3);
 }
 .btn-hipster {
@@ -204,11 +206,13 @@ ul {
 	text-transform: capitalize;
 	letter-spacing: var(--letterSpacing);
 }
+
 .form-input,
 .form-textarea {
 	width: 100%;
 	padding: 0.375rem 0.75rem;
 	border-radius: var(--borderRadius);
+
 	background: var(--backgroundColor);
 	border: 1px solid var(--grey-200);
 }
@@ -305,7 +309,9 @@ ul {
 	border-color: var(--grey-300);
 	transition: var(--darkModeTransition);
 	color: var(--textColor);
-	border-radius: 3px;
+	border-radius: var(--borderRadius);
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 	border-right: none;
 }
 
@@ -317,8 +323,10 @@ ul {
 	gap: 2rem;
 }
 
-.image-container .img {
-	height: 10em;
+.image-container img {
+	height: 20em;
+	box-shadow: var(--shadow-4);
+	border-radius: var(--borderRadius);
 }
 
 @media (min-width: 768px) {
