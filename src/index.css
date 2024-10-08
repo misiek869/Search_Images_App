@@ -323,8 +323,8 @@ ul {
 	gap: 2rem;
 }
 
-.image-container img {
-	height: 20em;
+.image-container .img {
+	height: 10em;
 	box-shadow: var(--shadow-4);
 	border-radius: var(--borderRadius);
 }
