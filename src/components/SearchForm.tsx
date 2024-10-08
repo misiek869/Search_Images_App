@@ -3,7 +3,9 @@ import React from 'react'
 const SearchForm = () => {
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		console.log(123)
+		const search = e.target.elements.search.value
+		if (!search) return
+    
 	}
 
 	return (
@@ -15,7 +17,9 @@ const SearchForm = () => {
 					name='search'
 					placeholder='search for photo'
 				/>
-				<button type='submit'>Search</button>
+				<button className='btn' type='submit'>
+					Search
+				</button>
 			</form>
 		</section>
 	)
