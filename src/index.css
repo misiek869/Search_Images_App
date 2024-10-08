@@ -308,3 +308,11 @@ ul {
 	border-radius: 3px;
 	border-right: none;
 }
+
+.image-container {
+	width: var(--view-width);
+	max-width: var(--max-width);
+	margin: 3rem auto;
+	display: grid;
+	gap: 2rem;
+}
