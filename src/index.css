@@ -316,3 +316,18 @@ ul {
 	display: grid;
 	gap: 2rem;
 }
+
+.image-container .img {
+	height: 10em;
+}
+
+@media (min-width: 768px) {
+	.image-container {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media (min-width: 992px) {
+	.image-container {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
