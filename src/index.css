@@ -253,6 +253,10 @@ ul {
 
 /* title */
 
+.title-container {
+	margin-bottom: 4rem;
+}
+
 .title {
 	text-align: center;
 }

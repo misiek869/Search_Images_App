@@ -6,8 +6,8 @@ import Title from './components/Title'
 function App() {
 	return (
 		<>
-			<Title />
 			<ThemeToggle />
+			<Title />
 			<SearchForm />
 			<Gallery />
 		</>
