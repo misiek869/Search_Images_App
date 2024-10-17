@@ -254,11 +254,13 @@ ul {
 /* title */
 
 .title-container {
-	margin-bottom: 4rem;
+	margin-bottom: 3rem;
 }
 
 .title {
 	text-align: center;
+	font-size: 3rem;
+	font-weight: 700;
 }
 
 .title-underline {
