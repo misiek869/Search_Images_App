@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import customFetch from '../utils'
 import { useGlobalContext } from '../context'
+import { useState } from 'react'
 
 type PhotoType = {
 	alt_description: string
@@ -12,6 +13,10 @@ type PhotoType = {
 
 const Gallery = () => {
 	const { search } = useGlobalContext()
+	const [selectedImage, setSelectedImage] = useState<string | null>(null)
+	const [isClosing, setIsClosing] = useState(false)
+
+	console.log(selectedImage)
 
 	const photos = useQuery({
 		queryKey: ['photos', search],
@@ -21,6 +26,18 @@ const Gallery = () => {
 			return result.data
 		},
 	})
+
+	const handleImageClick = (url: string) => {
+		setSelectedImage(url)
+	}
+
+	const closeModal = () => {
+		setIsClosing(true)
+		setTimeout(() => {
+			setSelectedImage(null)
+			setIsClosing(false)
+		}, 300)
+	}
 
 	if (photos.isLoading) {
 		return (
@@ -58,9 +75,19 @@ const Gallery = () => {
 						src={url}
 						alt={item.alt_description}
 						key={item.id}
+						onClick={() => handleImageClick(url)}
 					/>
 				)
 			})}
+
+			{selectedImage && (
+				<div className={`modal ${isClosing ? 'closing' : ''}`}>
+					<img src={selectedImage} alt='Powiększone' className='modal-image' />
+					<button className='btn btn-modal' onClick={closeModal} type='button'>
+						X
+					</button>
+				</div>
+			)}
 		</section>
 	)
 }
